@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   products = [];
   fetchData = function() {
     this.http
-      .get('http://localhost:5555/products')
+      .get('https://json-server-products.herokuapp.com/products')
       .subscribe((res: Response) => {
         this.products = res.json();
       });
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   deleteProduct = function(id) {
     if (confirm('Are you sure?')) {
-      const url = `${'http://localhost:5555/products'}/${id}`;
+      const url = `${'https://json-server-products.herokuapp.com/products'}/${id}`;
       return this.http
         .delete(url, { headers: this.headers })
         .toPromise()

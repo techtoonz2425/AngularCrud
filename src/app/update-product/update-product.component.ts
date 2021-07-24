@@ -30,7 +30,7 @@ export class UpdateProductComponent implements OnInit {
       p_name: product.p_name,
       p_cost: product.p_cost
     };
-    const url = `${'http://localhost:5555/products'}/${this.id}`;
+    const url = `${'https://json-server-products.herokuapp.com/products'}/${this.id}`;
     this.http
       .put(url, JSON.stringify(this.productObj), { headers: this.headers })
       .toPromise()
@@ -43,7 +43,7 @@ export class UpdateProductComponent implements OnInit {
       this.id = +params['id'];
     });
     this.http
-      .get('http://localhost:5555/products')
+      .get('https://json-server-products.herokuapp.com/products')
       .subscribe((res: Response) => {
         this.isUpdated = true;
         this.products = res.json();

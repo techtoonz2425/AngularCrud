@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit {
       p_cost: product.p_cost
     };
     this.http
-      .post('http://localhost:5555/products/', this.productObj)
+      .post('https://json-server-products.herokuapp.com/products/', this.productObj)
       .subscribe((res: Response) => {
         this.isAdded = true;
       });
